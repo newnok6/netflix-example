@@ -5,6 +5,7 @@ jobs:
     steps:
       - checkout
       # - unit-test
+      - run: echo "API_KEY=${API_TOKEN_KEY}" > .env
       - cloudrun/init
       - cloudrun/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
