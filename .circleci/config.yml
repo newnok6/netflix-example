@@ -11,11 +11,11 @@ jobs:
       - cloudrun/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
       - cloudrun/deploy:
-          args: '--set-env-vars=[API_KEY=${API_TOKEN_KEY}]'
+          args: '--port=80'
           image: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
           platform: managed
-          region: us-east1
-          service-name: example-service
+          region: asia-east1
+          service-name: netflix-client-example
           unauthenticated: true
       - run:
           command: >
