@@ -9,6 +9,7 @@ jobs:
       - cloudrun/build:
           tag: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
       - cloudrun/deploy:
+          args: '--set-env-vars=[API_KEY=${API_TOKEN_KEY}]'
           image: 'gcr.io/${GOOGLE_PROJECT_ID}/test-${CIRCLE_SHA1}'
           platform: managed
           region: us-east1
